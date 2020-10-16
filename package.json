@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Sensor-Guided-Living/vr#readme",
   "dependencies": {
-    "serve": "^11.3.2"
+    "howler": "^2.2.0",
+    "serve": "^11.3.2",
+    "yarn": "^1.22.10"
   }
 }
