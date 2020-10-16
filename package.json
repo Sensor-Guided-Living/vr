@@ -1,0 +1,22 @@
+{
+  "name": "vr",
+  "version": "1.0.0",
+  "description": "Realidad aumentada ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sensor-Guided-Living/vr.git"
+  },
+  "author": "Wolkingcr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sensor-Guided-Living/vr/issues"
+  },
+  "homepage": "https://github.com/Sensor-Guided-Living/vr#readme",
+  "dependencies": {
+    "serve": "^11.3.2"
+  }
+}
