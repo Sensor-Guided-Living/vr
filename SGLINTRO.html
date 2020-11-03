@@ -5,6 +5,13 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="main.css">
+		<script>var http = require('http');
+
+			http.createServer(function (req, res) {
+				res.writeHead(200, {'Content-Type': 'text/plain'});
+				res.write('Hello World!');
+				res.end();
+			}).listen(8080);</script>
 	</head>
 
 	<body>
@@ -12,6 +19,7 @@
 		
 
 		<script type="module">
+
 
 			import * as THREE from './build/three.module.js';
 
