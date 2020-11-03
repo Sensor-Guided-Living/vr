@@ -1,15 +1,16 @@
 {
   "name": "js",
   "version": "1.0.0",
-  "description": "",
   "main": "VRButton.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "av": "^0.4.9",
     "mp3": "^0.1.0"
-  }
+  },
+  "description": ""
 }
