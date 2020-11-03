@@ -19,6 +19,7 @@
   "dependencies": {
     "howler": "^2.2.0",
     "serve": "^11.3.2",
+    "stripe": "^8.119.0",
     "yarn": "^1.22.10"
   },
   "devDependencies": {},
