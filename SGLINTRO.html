@@ -10,13 +10,6 @@
 
 	<body>
 
-		<script>var http = require('http');
-
-			http.createServer(function (req, res) {
-				res.writeHead(200, {'Content-Type': 'text/plain'});
-				res.write('Hello World!');
-				res.end();
-			}).listen(8080);</script>
 
 		<script type="module">
 
@@ -216,6 +209,19 @@
 					mesh.receiveShadow = true;
 
 					scene.add( mesh );
+					var textGeo = new THREE.TextBufferGeometry( "Sensor Guided Living", {
+
+font: font,
+
+size: 100,
+height: 50,
+curveSegments: 12,
+
+bevelThickness: 2,
+bevelSize: 5,
+bevelEnabled: true
+
+} );
 
 				} );
 
