@@ -18,11 +18,14 @@
   "homepage": "https://github.com/Sensor-Guided-Living/vr#readme",
   "dependencies": {
     "howler": "^2.2.0",
+    "http-server": "^0.12.3",
     "serve": "^11.3.2",
     "stripe": "^8.119.0",
     "yarn": "^1.22.10"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "start-server-and-test": "^1.11.5"
+  },
   "keywords": [
     "Games",
     "Wolfking"
