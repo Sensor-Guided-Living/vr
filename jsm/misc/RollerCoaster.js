@@ -3,7 +3,7 @@ import {
 	BufferGeometry,
 	Quaternion,
 	Raycaster,
-	Vector3
+	Vector3,
 } from "../../build/three.module.js";
 
 var RollerCoasterGeometry = function ( curve, divisions ) {
