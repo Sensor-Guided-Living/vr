@@ -14,7 +14,7 @@
 
 		<script type="module">
 
-			import * as THREE from '../build/three.module.js';
+			import * as THREE from './build/three.module.js';
 
 			import { TTFLoader } from './jsm/loaders/TTFLoader.js';
 
@@ -83,7 +83,7 @@
 
 				var loader = new TTFLoader();
 
-				loader.load( 'fonts/ttf/kenpixel.ttf', function ( json ) {
+				loader.load( './fonts/ttf/kenpixel.ttf', function ( json ) {
 
 					font = new THREE.Font( json );
 					createText();
