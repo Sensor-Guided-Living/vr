@@ -297,7 +297,7 @@ function WebGLRenderer( parameters ) {
 		programCache = new WebGLPrograms( _this, cubemaps, extensions, capabilities, bindingStates, clipping );
 		materials = new WebGLMaterials( properties );
 		renderLists = new WebGLRenderLists( properties );
-		renderStates = new WebGLRenderStates( extensions, capabilities );
+		renderStates = new WebGLRenderStates();
 		background = new WebGLBackground( _this, cubemaps, state, objects, _premultipliedAlpha );
 
 		bufferRenderer = new WebGLBufferRenderer( _gl, extensions, info, capabilities );
@@ -873,9 +873,9 @@ function WebGLRenderer( parameters ) {
 		currentRenderState = renderStates.get( scene, camera );
 		currentRenderState.init();
 
-		scene.traverseVisible( function ( object ) {
+		scene.traverse( function ( object ) {
 
-			if ( object.isLight && object.layers.test( camera.layers ) ) {
+			if ( object.isLight ) {
 
 				currentRenderState.pushLight( object );
 

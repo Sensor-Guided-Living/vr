@@ -307,7 +307,9 @@ class Matrix3 {
 
 	}
 
-	fromArray( array, offset = 0 ) {
+	fromArray( array, offset ) {
+
+		if ( offset === undefined ) offset = 0;
 
 		for ( let i = 0; i < 9; i ++ ) {
 
@@ -319,7 +321,10 @@ class Matrix3 {
 
 	}
 
-	toArray( array = [], offset = 0 ) {
+	toArray( array, offset ) {
+
+		if ( array === undefined ) array = [];
+		if ( offset === undefined ) offset = 0;
 
 		const te = this.elements;
 
@@ -340,5 +345,6 @@ class Matrix3 {
 	}
 
 }
+
 
 export { Matrix3 };

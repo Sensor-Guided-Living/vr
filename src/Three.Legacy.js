@@ -2106,13 +2106,6 @@ CubeCamera.prototype.updateCubeMap = function ( renderer, scene ) {
 
 };
 
-CubeCamera.prototype.clear = function ( renderer, color, depth, stencil ) {
-
-	console.warn( 'THREE.CubeCamera: .clear() is now .renderTarget.clear().' );
-	return this.renderTarget.clear( renderer, color, depth, stencil );
-
-};
-
 //
 
 export const GeometryUtils = {

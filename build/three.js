@@ -63,7 +63,7 @@
 		};
 	}
 
-	var REVISION = '123dev';
+	var REVISION = '121';
 	var MOUSE = {
 		LEFT: 0,
 		MIDDLE: 1,
@@ -772,24 +772,15 @@
 		};
 
 		_proto.fromArray = function fromArray(array, offset) {
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (offset === undefined) offset = 0;
 			this.x = array[offset];
 			this.y = array[offset + 1];
 			return this;
 		};
 
 		_proto.toArray = function toArray(array, offset) {
-			if (array === void 0) {
-				array = [];
-			}
-
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (array === undefined) array = [];
+			if (offset === undefined) offset = 0;
 			array[offset] = this.x;
 			array[offset + 1] = this.y;
 			return array;
@@ -1103,9 +1094,7 @@
 		};
 
 		_proto.fromArray = function fromArray(array, offset) {
-			if (offset === void 0) {
-				offset = 0;
-			}
+			if (offset === undefined) offset = 0;
 
 			for (var i = 0; i < 9; i++) {
 				this.elements[i] = array[i + offset];
@@ -1115,14 +1104,8 @@
 		};
 
 		_proto.toArray = function toArray(array, offset) {
-			if (array === void 0) {
-				array = [];
-			}
-
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (array === undefined) array = [];
+			if (offset === undefined) offset = 0;
 			var te = this.elements;
 			array[offset] = te[0];
 			array[offset + 1] = te[1];
@@ -1834,10 +1817,7 @@
 		};
 
 		_proto.fromArray = function fromArray(array, offset) {
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (offset === undefined) offset = 0;
 			this.x = array[offset];
 			this.y = array[offset + 1];
 			this.z = array[offset + 2];
@@ -1846,14 +1826,8 @@
 		};
 
 		_proto.toArray = function toArray(array, offset) {
-			if (array === void 0) {
-				array = [];
-			}
-
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (array === undefined) array = [];
+			if (offset === undefined) offset = 0;
 			array[offset] = this.x;
 			array[offset + 1] = this.y;
 			array[offset + 2] = this.z;
@@ -2421,10 +2395,7 @@
 		};
 
 		_proto.fromArray = function fromArray(array, offset) {
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (offset === undefined) offset = 0;
 			this._x = array[offset];
 			this._y = array[offset + 1];
 			this._z = array[offset + 2];
@@ -2436,14 +2407,8 @@
 		};
 
 		_proto.toArray = function toArray(array, offset) {
-			if (array === void 0) {
-				array = [];
-			}
-
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (array === undefined) array = [];
+			if (offset === undefined) offset = 0;
 			array[offset] = this._x;
 			array[offset + 1] = this._y;
 			array[offset + 2] = this._z;
@@ -3016,10 +2981,7 @@
 		};
 
 		_proto.fromArray = function fromArray(array, offset) {
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (offset === undefined) offset = 0;
 			this.x = array[offset];
 			this.y = array[offset + 1];
 			this.z = array[offset + 2];
@@ -3027,14 +2989,8 @@
 		};
 
 		_proto.toArray = function toArray(array, offset) {
-			if (array === void 0) {
-				array = [];
-			}
-
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (array === undefined) array = [];
+			if (offset === undefined) offset = 0;
 			array[offset] = this.x;
 			array[offset + 1] = this.y;
 			array[offset + 2] = this.z;
@@ -4692,9 +4648,7 @@
 		};
 
 		_proto.fromArray = function fromArray(array, offset) {
-			if (offset === void 0) {
-				offset = 0;
-			}
+			if (offset === undefined) offset = 0;
 
 			for (var i = 0; i < 16; i++) {
 				this.elements[i] = array[i + offset];
@@ -4704,14 +4658,8 @@
 		};
 
 		_proto.toArray = function toArray(array, offset) {
-			if (array === void 0) {
-				array = [];
-			}
-
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (array === undefined) array = [];
+			if (offset === undefined) offset = 0;
 			var te = this.elements;
 			array[offset] = te[0];
 			array[offset + 1] = te[1];
@@ -4940,14 +4888,8 @@
 		};
 
 		_proto.toArray = function toArray(array, offset) {
-			if (array === void 0) {
-				array = [];
-			}
-
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (array === undefined) array = [];
+			if (offset === undefined) offset = 0;
 			array[offset] = this._x;
 			array[offset + 1] = this._y;
 			array[offset + 2] = this._z;
@@ -5311,16 +5253,6 @@
 				object.dispatchEvent(_removedEvent);
 			}
 
-			return this;
-		},
-		clear: function clear() {
-			for (var i = 0; i < this.children.length; i++) {
-				var object = this.children[i];
-				object.parent = null;
-				object.dispatchEvent(_removedEvent);
-			}
-
-			this.children.length = 0;
 			return this;
 		},
 		attach: function attach(object) {
@@ -6610,10 +6542,7 @@
 		};
 
 		_proto.fromArray = function fromArray(array, offset) {
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (offset === undefined) offset = 0;
 			this.r = array[offset];
 			this.g = array[offset + 1];
 			this.b = array[offset + 2];
@@ -6621,14 +6550,8 @@
 		};
 
 		_proto.toArray = function toArray(array, offset) {
-			if (array === void 0) {
-				array = [];
-			}
-
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (array === undefined) array = [];
+			if (offset === undefined) offset = 0;
 			array[offset] = this.r;
 			array[offset + 1] = this.g;
 			array[offset + 2] = this.b;
@@ -9220,7 +9143,7 @@
 				target = new Vector3();
 			}
 
-			this.updateWorldMatrix(true, false);
+			this.updateMatrixWorld(true);
 			var e = this.matrixWorld.elements;
 			return target.set(-e[8], -e[9], -e[10]).normalize();
 		},
@@ -9475,6 +9398,17 @@
 			renderer.setRenderTarget(currentRenderTarget);
 			renderer.xr.enabled = currentXrEnabled;
 		};
+
+		this.clear = function (renderer, color, depth, stencil) {
+			var currentRenderTarget = renderer.getRenderTarget();
+
+			for (var i = 0; i < 6; i++) {
+				renderer.setRenderTarget(renderTarget, i);
+				renderer.clear(color, depth, stencil);
+			}
+
+			renderer.setRenderTarget(currentRenderTarget);
+		};
 	}
 
 	CubeCamera.prototype = Object.create(Object3D.prototype);
@@ -9485,15 +9419,7 @@
 		mapping = mapping !== undefined ? mapping : CubeReflectionMapping;
 		format = format !== undefined ? format : RGBFormat;
 		Texture.call(this, images, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding);
-		this.flipY = false; // Why CubeTexture._needsFlipEnvMap is necessary:
-		//
-		// By convention -- likely based on the RenderMan spec from the 1990's -- cube maps are specified by WebGL (and three.js)
-		// in a coordinate system in which positive-x is to the right when looking up the positive-z axis -- in other words,
-		// in a left-handed coordinate system. By continuing this convention, preexisting cube maps continued to render correctly.
-		// three.js uses a right-handed coordinate system. So environment maps used in three.js appear to have px and nx swapped
-		// and the flag _needsFlipEnvMap controls this conversion. The flip is not required (and thus _needsFlipEnvMap is set to false)
-		// when using WebGLCubeRenderTarget.texture as a cube texture.
-
+		this.flipY = false;
 		this._needsFlipEnvMap = true;
 	}
 
@@ -9566,17 +9492,6 @@
 		mesh.geometry.dispose();
 		mesh.material.dispose();
 		return this;
-	};
-
-	WebGLCubeRenderTarget.prototype.clear = function (renderer, color, depth, stencil) {
-		var currentRenderTarget = renderer.getRenderTarget();
-
-		for (var i = 0; i < 6; i++) {
-			renderer.setRenderTarget(this, i);
-			renderer.clear(color, depth, stencil);
-		}
-
-		renderer.setRenderTarget(currentRenderTarget);
 	};
 
 	function DataTexture(data, width, height, format, type, mapping, wrapS, wrapT, magFilter, minFilter, anisotropy, encoding) {
@@ -11619,7 +11534,6 @@
 							renderer.setRenderTarget(currentRenderTarget);
 							renderer.setRenderList(currentRenderList);
 							renderer.setRenderState(currentRenderState);
-							texture.addEventListener('dispose', onTextureDispose);
 							return mapTextureMapping(renderTarget.texture, texture.mapping);
 						} else {
 							// image not yet ready. try the conversion next frame
@@ -11630,17 +11544,6 @@
 			}
 
 			return texture;
-		}
-
-		function onTextureDispose(event) {
-			var texture = event.target;
-			texture.removeEventListener('dispose', onTextureDispose);
-			var cubemap = cubemaps.get(texture);
-
-			if (cubemap !== undefined) {
-				cubemaps.delete(texture);
-				cubemap.dispose();
-			}
 		}
 
 		function dispose() {
@@ -11722,7 +11625,7 @@
 				wireframeAttributes.delete(buffergeometry);
 			}
 
-			bindingStates.releaseStatesOfGeometry(buffergeometry);
+			bindingStates.releaseStatesOfGeometry(geometry);
 
 			if (geometry.isInstancedBufferGeometry === true) {
 				delete geometry._maxInstanceCount;
@@ -13833,7 +13736,7 @@
 		return (lightB.castShadow ? 1 : 0) - (lightA.castShadow ? 1 : 0);
 	}
 
-	function WebGLLights(extensions, capabilities) {
+	function WebGLLights() {
 		var cache = new UniformsCache();
 		var shadowCache = ShadowUniformsCache();
 		var state = {
@@ -14054,22 +13957,8 @@
 			}
 
 			if (rectAreaLength > 0) {
-				if (capabilities.isWebGL2) {
-					// WebGL 2
-					state.rectAreaLTC1 = UniformsLib.LTC_FLOAT_1;
-					state.rectAreaLTC2 = UniformsLib.LTC_FLOAT_2;
-				} else {
-					// WebGL 1
-					if (extensions.has('OES_texture_float_linear') === true) {
-						state.rectAreaLTC1 = UniformsLib.LTC_FLOAT_1;
-						state.rectAreaLTC2 = UniformsLib.LTC_FLOAT_2;
-					} else if (extensions.has('OES_texture_half_float_linear') === true) {
-						state.rectAreaLTC1 = UniformsLib.LTC_HALF_1;
-						state.rectAreaLTC2 = UniformsLib.LTC_HALF_2;
-					} else {
-						console.error('THREE.WebGLRenderer: Unable to use RectAreaLight. Missing WebGL extensions.');
-					}
-				}
+				state.rectAreaLTC1 = UniformsLib.LTC_1;
+				state.rectAreaLTC2 = UniformsLib.LTC_2;
 			}
 
 			state.ambient[0] = r;
@@ -14110,8 +13999,8 @@
 		};
 	}
 
-	function WebGLRenderState(extensions, capabilities) {
-		var lights = new WebGLLights(extensions, capabilities);
+	function WebGLRenderState() {
+		var lights = new WebGLLights();
 		var lightsArray = [];
 		var shadowsArray = [];
 
@@ -14146,19 +14035,19 @@
 		};
 	}
 
-	function WebGLRenderStates(extensions, capabilities) {
+	function WebGLRenderStates() {
 		var renderStates = new WeakMap();
 
 		function get(scene, camera) {
 			var renderState;
 
 			if (renderStates.has(scene) === false) {
-				renderState = new WebGLRenderState(extensions, capabilities);
+				renderState = new WebGLRenderState();
 				renderStates.set(scene, new WeakMap());
 				renderStates.get(scene).set(camera, renderState);
 			} else {
 				if (renderStates.get(scene).has(camera) === false) {
-					renderState = new WebGLRenderState(extensions, capabilities);
+					renderState = new WebGLRenderState();
 					renderStates.get(scene).set(camera, renderState);
 				} else {
 					renderState = renderStates.get(scene).get(camera);
@@ -17445,7 +17334,7 @@
 			programCache = new WebGLPrograms(_this, cubemaps, extensions, capabilities, bindingStates, clipping);
 			materials = new WebGLMaterials(properties);
 			renderLists = new WebGLRenderLists(properties);
-			renderStates = new WebGLRenderStates(extensions, capabilities);
+			renderStates = new WebGLRenderStates();
 			background = new WebGLBackground(_this, cubemaps, state, objects, _premultipliedAlpha);
 			bufferRenderer = new WebGLBufferRenderer(_gl, extensions, info, capabilities);
 			indexedBufferRenderer = new WebGLIndexedBufferRenderer(_gl, extensions, info, capabilities);
@@ -17834,8 +17723,8 @@
 		this.compile = function (scene, camera) {
 			currentRenderState = renderStates.get(scene, camera);
 			currentRenderState.init();
-			scene.traverseVisible(function (object) {
-				if (object.isLight && object.layers.test(camera.layers)) {
+			scene.traverse(function (object) {
+				if (object.isLight) {
 					currentRenderState.pushLight(object);
 
 					if (object.castShadow) {
@@ -20043,9 +19932,6 @@
 
 	VideoTexture.prototype = Object.assign(Object.create(Texture.prototype), {
 		constructor: VideoTexture,
-		clone: function clone() {
-			return new this.constructor(this.image).copy(this);
-		},
 		isVideoTexture: true,
 		update: function update() {
 			var video = this.image;
@@ -29084,10 +28970,7 @@
 		};
 
 		_proto.fromArray = function fromArray(array, offset) {
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (offset === undefined) offset = 0;
 			var coefficients = this.coefficients;
 
 			for (var i = 0; i < 9; i++) {
@@ -29098,14 +28981,8 @@
 		};
 
 		_proto.toArray = function toArray(array, offset) {
-			if (array === void 0) {
-				array = [];
-			}
-
-			if (offset === void 0) {
-				offset = 0;
-			}
-
+			if (array === undefined) array = [];
+			if (offset === undefined) offset = 0;
 			var coefficients = this.coefficients;
 
 			for (var i = 0; i < 9; i++) {
@@ -29207,12 +29084,12 @@
 			var material = new Materials[json.type]();
 			if (json.uuid !== undefined) material.uuid = json.uuid;
 			if (json.name !== undefined) material.name = json.name;
-			if (json.color !== undefined && material.color !== undefined) material.color.setHex(json.color);
+			if (json.color !== undefined) material.color.setHex(json.color);
 			if (json.roughness !== undefined) material.roughness = json.roughness;
 			if (json.metalness !== undefined) material.metalness = json.metalness;
 			if (json.sheen !== undefined) material.sheen = new Color().setHex(json.sheen);
-			if (json.emissive !== undefined && material.emissive !== undefined) material.emissive.setHex(json.emissive);
-			if (json.specular !== undefined && material.specular !== undefined) material.specular.setHex(json.specular);
+			if (json.emissive !== undefined) material.emissive.setHex(json.emissive);
+			if (json.specular !== undefined) material.specular.setHex(json.specular);
 			if (json.shininess !== undefined) material.shininess = json.shininess;
 			if (json.clearcoat !== undefined) material.clearcoat = json.clearcoat;
 			if (json.clearcoatRoughness !== undefined) material.clearcoatRoughness = json.clearcoatRoughness;
@@ -31122,10 +30999,10 @@
 
 			if (this._connected === true) {
 				this.disconnect();
-				this.filters = value.slice();
+				this.filters = value;
 				this.connect();
 			} else {
-				this.filters = value.slice();
+				this.filters = value;
 			}
 
 			return this;
@@ -32195,10 +32072,7 @@
 						var _lastIndex = --nObjects,
 								_lastObject = objects[_lastIndex];
 
-						if (_lastIndex > 0) {
-							indicesByUUID[_lastObject.uuid] = index;
-						}
-
+						indicesByUUID[_lastObject.uuid] = index;
 						objects[index] = _lastObject;
 						objects.pop(); // accounting is done, now do the same for all bindings
 
@@ -34832,64 +34706,6 @@
 		return AxesHelper;
 	}(LineSegments);
 
-	var _floatView = new Float32Array(1);
-
-	var _int32View = new Int32Array(_floatView.buffer);
-
-	var DataUtils = {
-		// Converts float32 to float16 (stored as uint16 value).
-		toHalfFloat: function toHalfFloat(val) {
-			// Source: http://gamedev.stackexchange.com/questions/17326/conversion-of-a-number-from-single-precision-floating-point-representation-to-a/17410#17410
-
-			/* This method is faster than the OpenEXR implementation (very often
-			* used, eg. in Ogre), with the additional benefit of rounding, inspired
-			* by James Tursa?s half-precision code. */
-			_floatView[0] = val;
-			var x = _int32View[0];
-			var bits = x >> 16 & 0x8000;
-			/* Get the sign */
-
-			var m = x >> 12 & 0x07ff;
-			/* Keep one extra bit for rounding */
-
-			var e = x >> 23 & 0xff;
-			/* Using int is faster here */
-
-			/* If zero, or denormal, or exponent underflows too much for a denormal
-				* half, return signed zero. */
-
-			if (e < 103) return bits;
-			/* If NaN, return NaN. If Inf or exponent overflow, return Inf. */
-
-			if (e > 142) {
-				bits |= 0x7c00;
-				/* If exponent was 0xff and one mantissa bit was set, it means NaN,
-							* not Inf, so make sure we set one mantissa bit too. */
-
-				bits |= (e == 255 ? 0 : 1) && x & 0x007fffff;
-				return bits;
-			}
-			/* If exponent underflows but not too much, return a denormal */
-
-
-			if (e < 113) {
-				m |= 0x0800;
-				/* Extra rounding may overflow and set mantissa to 0 and exponent
-					* to 1, which is OK. */
-
-				bits |= (m >> 114 - e) + (m >> 113 - e & 1);
-				return bits;
-			}
-
-			bits |= e - 112 << 10 | m >> 1;
-			/* Extra rounding. An overflow will set mantissa to 0 and increment
-				* the exponent, which is OK. */
-
-			bits += m & 1;
-			return bits;
-		}
-	};
-
 	var _ENCODINGS;
 	var LOD_MIN = 4;
 	var LOD_MAX = 8;
@@ -36778,11 +36594,6 @@
 	CubeCamera.prototype.updateCubeMap = function (renderer, scene) {
 		console.warn('THREE.CubeCamera: .updateCubeMap() is now .update().');
 		return this.update(renderer, scene);
-	};
-
-	CubeCamera.prototype.clear = function (renderer, color, depth, stencil) {
-		console.warn('THREE.CubeCamera: .clear() is now .renderTarget.clear().');
-		return this.renderTarget.clear(renderer, color, depth, stencil);
 	}; //
 
 
@@ -36960,7 +36771,6 @@
 	exports.DataTexture2DArray = DataTexture2DArray;
 	exports.DataTexture3D = DataTexture3D;
 	exports.DataTextureLoader = DataTextureLoader;
-	exports.DataUtils = DataUtils;
 	exports.DecrementStencilOp = DecrementStencilOp;
 	exports.DecrementWrapStencilOp = DecrementWrapStencilOp;
 	exports.DefaultLoadingManager = DefaultLoadingManager;

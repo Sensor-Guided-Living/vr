@@ -281,12 +281,7 @@ Object.assign( AnimationObjectGroup.prototype, {
 					const lastIndex = -- nObjects,
 						lastObject = objects[ lastIndex ];
 
-					if ( lastIndex > 0 ) {
-
-						indicesByUUID[ lastObject.uuid ] = index;
-
-					}
-
+					indicesByUUID[ lastObject.uuid ] = index;
 					objects[ index ] = lastObject;
 					objects.pop();
 

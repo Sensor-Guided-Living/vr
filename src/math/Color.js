@@ -549,7 +549,9 @@ class Color {
 
 	}
 
-	fromArray( array, offset = 0 ) {
+	fromArray( array, offset ) {
+
+		if ( offset === undefined ) offset = 0;
 
 		this.r = array[ offset ];
 		this.g = array[ offset + 1 ];
@@ -559,7 +561,10 @@ class Color {
 
 	}
 
-	toArray( array = [], offset = 0 ) {
+	toArray( array, offset ) {
+
+		if ( array === undefined ) array = [];
+		if ( offset === undefined ) offset = 0;
 
 		array[ offset ] = this.r;
 		array[ offset + 1 ] = this.g;

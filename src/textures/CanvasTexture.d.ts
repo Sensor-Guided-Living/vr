@@ -33,6 +33,4 @@ export class CanvasTexture extends Texture {
 		anisotropy?: number
 	);
 
-	readonly isCanvasTexture: true;
-
 }

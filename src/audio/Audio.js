@@ -244,12 +244,12 @@ class Audio extends Object3D {
 		if ( this._connected === true ) {
 
 			this.disconnect();
-			this.filters = value.slice();
+			this.filters = value;
 			this.connect();
 
 		} else {
 
-			this.filters = value.slice();
+			this.filters = value;
 
 		}
 
