@@ -1,6 +1,6 @@
 {
   "name": "vr",
-  "version": "2.1.3",
+  "version": "3.2.1",
   "description": "Realidad aumentada ",
   "main": "index.js",
   "scripts": {
