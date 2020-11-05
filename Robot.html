@@ -24,25 +24,11 @@
 	</head>
 
 	<body>
-		<script>const http = require('http');
-
-			const hostname = '127.0.0.1';
-			const port = 3000;
-			
-			const server = http.createServer((req, res) => {
-			  res.statusCode = 200;
-			  res.setHeader('Content-Type', 'text/plain');
-			  res.end('Hello World');
-			});
-			
-			server.listen(port, hostname, () => {
-			  console.log(`Server running at http://${hostname}:${port}/`);
-			});</script>
-	
+		
 
 		<script type="module">
 
-			import * as THREE from '/build/three.module.js';
+			import * as THREE from './build/three.module.js';
 
 			import Stats from './jsm/libs/stats.module.js';
 			import { GUI } from './jsm/libs/dat.gui.module.js';
