@@ -20,6 +20,7 @@
     "howler": "^2.2.0",
     "http": "0.0.1-security",
     "http-server": "^0.12.3",
+    "init-server": "^1.0.1",
     "serve": "^11.3.2",
     "stripe": "^8.119.0",
     "yarn": "^1.22.10"
@@ -32,6 +33,8 @@
     "Wolfking"
   ],
   "directories": {
+    "doc": "docs",
+    "example": "examples",
     "test": "test"
   }
 }
