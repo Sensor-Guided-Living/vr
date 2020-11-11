@@ -6,14 +6,14 @@
 
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content="JuwalBose" />
-        <meta name="description" content="Endless Roller" />
+        <meta name="author" content="Paul Warren ,  Wylky Ramirez" />
+        <meta name="description" content="Welcome to the new funWorld" />
 
        
         
 	<audio loop id="music" preload="auto" style="display: none">
-		<source src="sounds/darkosc.mpeg" type="audio/ogg">
-		<source src="sounds/darkosc.mpeg" type="audio/mpeg">
+		<source src="/sounds/darkosc.mpeg" type="audio/ogg">
+		<source src="./sounds/darkosc.mpeg" type="audio/mpeg">
 	</audio>
 
         
@@ -36,7 +36,7 @@
           <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js">
           </script>
         
-          <!-- https://teachablemachine.withgoogle.com/models/kKu9djuce/ -->
+         
           <div>Game</div>
         
           <div><canvas id="canvas"></canvas></div>
@@ -86,10 +86,7 @@
                          canvas.style.width = canvas_width + 'px';
                          canvas.style.height = canvas_height + 'px';
                      }*/
-            // More API functions here:
-            // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
-        
-            // the link to your model provided by Teachable Machine export panel
+          
             const URL = "https://teachablemachine.withgoogle.com/models/kKu9djuce/";
             let model, webcam, ctx, labelContainer, maxPredictions;
         
@@ -144,25 +141,21 @@
             var corriendo = 0;
             async function predict() {
               if (corriendo == 1)
-                return;
-        
+                return;        
               //console.log("test");
               corriendo = 1;
               //alert(Date.now());
               const {
                 pose,
                 posenetOutput
-              } = await model.estimatePose(webcam.canvas);
-        
-              const prediction = await model.predict(posenetOutput);
-        
+              } = await model.estimatePose(webcam.canvas);        
+              const prediction = await model.predict(posenetOutput);  
         
               for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction =
                   prediction[i].className + ": " + prediction[i].probability.toFixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
-              }
-        
+              }      
         
               /* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
         
@@ -244,13 +237,13 @@
         
           </audio>
         
-          <!--<div id="container">
+          <div id="container">
         <div id="left"></div>
         <div id="container">
             <div id="left"></div>
             <div id="right"></div>
             <div id="center"></div>
-          </div>  -->
+          </div>  
         
           <div id="container">
         
@@ -356,7 +349,7 @@
           <!--////////////////////////////////////////////////////////////////////////// audiios////////////////////////////////// -->
           <audio id="3">
             <source src="audiosSGL/welcometosgl.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
+            SGL Auditive Instructions 
           </audio>
           <script>
             var audiobueno3 = document.getElementById("3");
@@ -371,11 +364,11 @@
             }
           </script>
           <!--//////////////////////////////////////////////////////////////////////////4////////////////////////////////// -->
-          <audio id="4">
+         <!--   <audio id="4">
         
             <source src="audiosSGL/robotbodydown.mp3" type="audio/mpeg">
         
-          </audio>
+          </audio>-->
         
           <script>
             var robotdown = document.getElementById("4");
