@@ -1,53 +1,82 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Demo: Cantina Negrar preloader deconstruction</title>
+	<meta name="description" content="Learn how to recreate the preloader from Cantina Negrar. Tutorial for a passionate front-end web developers by Petr Tichy.">
 
-<html>
-
-    <head>
-      
-<script>
-    function Entrada() {
-     alert("Welcome to sgl game");
-  }
-  
-  Entrada();
-  
-  function tiempo() {
-    setTimeout(function(){ alert("Hello, please stand Up in front of computer"); }, 3000);
-  }
-  
-  tiempo();
-  
+	<!--iOS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-  </script>
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content="Paul Warren ,  Wylky Ramirez" />
-        <meta name="description" content="Welcome to the new funWorld" />
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	<style type="text/css">
+	.back-link a {
+		color: #4ca340;
+		text-decoration: none; 
+		border-bottom: 1px #4ca340 solid;
+	}
+	.back-link a:hover,
+	.back-link a:focus {
+		color: #408536; 
+		text-decoration: none;
+		border-bottom: 1px #408536 solid;
+	}
+	h1 {
+		height: 100%;
+		/* The html and body elements cannot have any padding or margin. */
+		margin: 0;
+		font-size: 14px;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 32px;
+		margin-bottom: 3px;
+	}
+	.entry-header {
+		text-align: left;
+		margin: 0 auto 50px auto;
+		width: 80%;
+        max-width: 978px;
+		position: relative;
+		z-index: 10001;
+	}
+	#demo-content {
+		padding-top: 100px;
+	}
+	</style>
+</head>
+<body class="demo">
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
 
-       
-        
-	<audio loop id="music" preload="auto" style="display: none">
-		<source src="/sounds/darkosc.mpeg" type="audio/ogg">
-		<source src="./sounds/darkosc.mpeg" type="audio/mpeg">
-	</audio>
+	<!-- Demo content -->			
+	<div id="demo-content">
 
-        
-        
-        <title>SGL Roller</title>
-        <h2>SGL 2020</h2>
-        <div class="preloader">
-          <style>
-            
-          </style>
-        </div>
+		<header class="entry-header">
 
-    </head>
+			<nav class="back-link">
+				<span class="nav-previous"><a href="" rel="prev"><span class="meta-nav">&larr;</span> Back to the SGL</a></span>
+			</nav><!-- .nav-single -->
 
-    <body>
-        
-        <audio src="./sounds/darkosc.mpeg" autoplay="autoplay" loop="loop"></audio>
+			<h1 class="entry-title">SGL tutorial </h1>
+		</header>
+
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+
+			<div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+		</div>
+		<audio src="./sounds/darkosc.mpeg" autoplay="autoplay" loop="loop"></audio>
         <audio controls autoplay>
             <source src="./sounds/darkosc.mpeg" type="audio/ogg">
                 <source src="./sounds/darkosc.mpeg" type="audio/mpeg">
@@ -89,7 +118,26 @@
         
         
             }
-            
+            .loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
           </style>
           <div id="label-container"></div>
         
@@ -191,14 +239,12 @@
         
               /* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
         
-              Badposture = prediction[2].className + prediction[2].probability;
-             // console.log(Badposture);
+              Badposture = prediction[0].className + prediction[0].probability;
+              // console.log(Badposture);
         
               var SideBody = prediction[1].className + prediction[1].probability;
-             console.log(SideBody);
-
         
-              var bodyUp = prediction[0].className + prediction[0].probability;
+              var bodyUp = prediction[2].className; // + prediction[7].probability;
         
               //   var Downside = prediction[2].className + prediction[2].probability;
         
@@ -210,57 +256,36 @@
               /* ............................................ */
               /* Variables asignadas..................................................... */
               var Cero = "Front Face1";
-              var One = "Right Face1";
-              var Two = "Left Face1";
+              var One = "Right Face";
+              var Two = "Left Face";
         
-        //mover bola a Izquierda
-
+        
               if ((Two == Badposture) && (control != Two)) {
                 //playAudio();
                 control = Two;
                 console.log(control);
-
-                if(currentLane==middleLane){
-			currentLane=leftLane;
-		}else if(currentLane==rightLane){
-			currentLane=middleLane;
-		}else{
-			validMove=false;	
-		}
         
               }
-
-              /* ////////////////////////////////////////////////////////////////////////////////////
-               */
-        /* bola derecha
         
-        */
-              if ((One == SideBody) && (control != One)) {
+              if ((One == SideBody) && (control != one)) {
                 //audio2();
-                control = One;
-           
-              
-                if(currentLane==middleLane){
-			currentLane=rightLane;
-		}else if(currentLane==leftLane){
-			currentLane=middleLane;
-		}else{
-			validMove=false;	
-		}
+                control = Five;
+                console.log(control);
         
         
               }
-    
-               if ((Cero == Badposture) && (control != Cero)) {
-              
+        
+              if ((Cero == Badposture) && (control != Cero)) {
+                if (prediction[0].probability > 0.80) {
+                  audio3();
                   //setTimeout('incrementer()', 1000);
-                  control = Cero;
         
         
-                  bounceValue=0.1;
-			jumping=true;
-		
-		validMove=false;
+                  incrementer();
+                  mybarra();
+                } else {
+                  adios();
+                }
         
               }
         
@@ -288,11 +313,18 @@
           <!-- Audio 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
           <audio id="myAudio">
         
-            <source src="./audiosSGL/beep-03.mp3" type="audio/mpeg">
+            <source src="audiosSGL/beep-03.mp3" type="audio/mpeg">
         
           </audio>
         
-         
+          <div id="container">
+        <div id="left"></div>
+        <div id="container">
+            <div id="left"></div>
+            <div id="right"></div>
+            <div id="center"></div>
+          </div>  
+        
           <div id="container">
         
             <div id="left">
@@ -381,7 +413,7 @@
           </script>
           <!-- Audio corrct posture -->
           <audio id="2">
-            <source src="./audiosSGL/robotbodydown.mp3" type="audio/mpeg">
+            <source src="audiosSGL/robotbodydown.mp3" type="audio/mpeg">
           </audio>
           <script>
             var aubodydown = document.getElementById("2");
@@ -396,7 +428,7 @@
           </script>
           <!--////////////////////////////////////////////////////////////////////////// audiios////////////////////////////////// -->
           <audio id="3">
-            <source src="./audiosSGL/welcometosgl.mp3" type="audio/mpeg">
+            <source src="audiosSGL/welcometosgl.mp3" type="audio/mpeg">
             SGL Auditive Instructions 
           </audio>
           <script>
@@ -446,10 +478,12 @@
 
 <div id="TutContainer"></div>
 
-<script type="text/javascript" src="./lib/three.min.js"></script>
-<script type="text/javascript" src="./lib/stats.min.js"></script>
-<script type="text/javascript" src="./src/OrbitControls.js"></script>
-<script type="text/javascript" src="./src/endlessroller.js"></script>
-    </body>
+	</div>
+	<!-- /Demo content -->
 
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="js/main.js"></script>
+
+</body>
 </html>
