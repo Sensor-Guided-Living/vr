@@ -218,7 +218,9 @@
               if ((Two == Badposture) && (control != Two)) {
                 //playAudio();
                 control = Two;
-                console.log(control);
+
+                currentLane=leftLane;/*  
+                //console.log(control);
 
                 if(currentLane==middleLane){
 			currentLane=leftLane;
@@ -226,7 +228,7 @@
 			currentLane=middleLane;
 		}else{
 			validMove=false;	
-		}
+		}*/
         
               }
 
@@ -237,31 +239,27 @@
         */
               if ((One == SideBody) && (control != One)) {
                 //audio2();
-                control = One;
-           
-              
+                control = One;   
+                currentLane=rightLane;
+                
+                /*  
                 if(currentLane==middleLane){
-			currentLane=rightLane;
+                  currentLane=rightLane;
 		}else if(currentLane==leftLane){
 			currentLane=middleLane;
 		}else{
 			validMove=false;	
 		}
-        
+    */
         
               }
     
-               if ((Cero == Badposture) && (control != Cero)) {
-              
+               if ((Cero == Badposture) && (control != Cero)) {              
                   //setTimeout('incrementer()', 1000);
-                  control = Cero;
-        
-        
+                  control = Cero;        
                   bounceValue=0.1;
-			jumping=true;
-		
-		validMove=false;
-        
+                  jumping=true;
+                  validMove=false;
               }
         
         
