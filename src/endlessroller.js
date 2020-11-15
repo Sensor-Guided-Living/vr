@@ -150,9 +150,9 @@ function handleKeyDown(keyEvent){
 			validMove=false;	
 		}
 	}else{
-		if ( keyEvent.keyCode === 38){//up, jump
+		 ( keyEvent.keyCode === 38){//up, jump
 			bounceValue=0.1;
-			jumping=true;
+			jumping=trifue;
 		}
 		validMove=false;
 	}
