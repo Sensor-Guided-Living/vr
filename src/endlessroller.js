@@ -150,17 +150,16 @@ function handleKeyDown(keyEvent){
 			validMove=false;	
 		}
 	}else{
-		 ( keyEvent.keyCode === 38){//up, jump
 			bounceValue=0.1;
 			jumping=trifue;
 		}
 		validMove=false;
 	}
-	//heroSphere.position.x=currentLane;
+	heroSphere.position.x=currentLane;
 	if(validMove){
 		jumping=true;
 		bounceValue=0.06;
-	}
+	
 }
 function addHero(){
 	var sphereGeometry = new THREE.DodecahedronGeometry( heroRadius, 1);

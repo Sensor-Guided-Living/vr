@@ -200,9 +200,6 @@ const StreamCopyUsage = 35042;
 const GLSL1 = "100";
 const GLSL3 = "300 es";
 
-/**
- * https://github.com/mrdoob/eventdispatcher.js/
- */
 
 function EventDispatcher() {}
 
@@ -270,7 +267,6 @@ Object.assign( EventDispatcher.prototype, {
 
 			event.target = this;
 
-			// Make a copy, in case listeners are removed while iterating.
 			const array = listenerArray.slice( 0 );
 
 			for ( let i = 0, l = array.length; i < l; i ++ ) {
@@ -302,7 +298,7 @@ const MathUtils = {
 
 	generateUUID: function () {
 
-		// http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript/21963136#21963136
+		
 
 		const d0 = Math.random() * 0xffffffff | 0;
 		const d1 = Math.random() * 0xffffffff | 0;
@@ -313,7 +309,7 @@ const MathUtils = {
 			_lut[ d2 & 0x3f | 0x80 ] + _lut[ d2 >> 8 & 0xff ] + '-' + _lut[ d2 >> 16 & 0xff ] + _lut[ d2 >> 24 & 0xff ] +
 			_lut[ d3 & 0xff ] + _lut[ d3 >> 8 & 0xff ] + _lut[ d3 >> 16 & 0xff ] + _lut[ d3 >> 24 & 0xff ];
 
-		// .toUpperCase() here flattens concatenated strings to save heap memory space.
+
 		return uuid.toUpperCase();
 
 	},
@@ -324,16 +320,13 @@ const MathUtils = {
 
 	},
 
-	// compute euclidian modulo of m % n
-	// https://en.wikipedia.org/wiki/Modulo_operation
-
 	euclideanModulo: function ( n, m ) {
 
 		return ( ( n % m ) + m ) % m;
 
 	},
 
-	// Linear mapping from range <a1, a2> to range <b1, b2>
+
 
 	mapLinear: function ( x, a1, a2, b1, b2 ) {
 
@@ -341,7 +334,7 @@ const MathUtils = {
 
 	},
 
-	// https://en.wikipedia.org/wiki/Linear_interpolation
+	
 
 	lerp: function ( x, y, t ) {
 
@@ -349,7 +342,6 @@ const MathUtils = {
 
 	},
 
-	// http://en.wikipedia.org/wiki/Smoothstep
 
 	smoothstep: function ( x, min, max ) {
 
@@ -373,7 +365,7 @@ const MathUtils = {
 
 	},
 
-	// Random integer from <low, high> interval
+
 
 	randInt: function ( low, high ) {
 
@@ -381,7 +373,7 @@ const MathUtils = {
 
 	},
 
-	// Random float from <low, high> interval
+	
 
 	randFloat: function ( low, high ) {
 
@@ -389,7 +381,6 @@ const MathUtils = {
 
 	},
 
-	// Random float from <-range/2, range/2> interval
 
 	randFloatSpread: function ( range ) {
 
@@ -397,13 +388,13 @@ const MathUtils = {
 
 	},
 
-	// Deterministic pseudo-random float in the interval [ 0, 1 ]
+
 
 	seededRandom: function ( s ) {
 
 		if ( s !== undefined ) _seed = s % 2147483647;
 
-		// Park-Miller algorithm
+	
 
 		_seed = _seed * 16807 % 2147483647;
 
@@ -443,11 +434,7 @@ const MathUtils = {
 
 	setQuaternionFromProperEuler: function ( q, a, b, c, order ) {
 
-		// Intrinsic Proper Euler Angles - see https://en.wikipedia.org/wiki/Euler_angles
-
-		// rotations are applied to the axes in the order specified by 'order'
-		// rotation by angle 'a' is applied first, then by angle 'b', then by angle 'c'
-		// angles are in radians
+		
 
 		const cos = Math.cos;
 		const sin = Math.sin;
@@ -751,8 +738,7 @@ class Vector2 {
 
 	clamp( min, max ) {
 
-		// assumes min < max, componentwise
-
+	
 		this.x = Math.max( min.x, Math.min( max.x, this.x ) );
 		this.y = Math.max( min.y, Math.min( max.y, this.y ) );
 
@@ -860,7 +846,6 @@ class Vector2 {
 
 	angle() {
 
-		// computes the angle in radians with respect to the positive x-axis
 
 		const angle = Math.atan2( - this.y, - this.x ) + Math.PI;
 
