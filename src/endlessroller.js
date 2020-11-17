@@ -1,5 +1,4 @@
-/*global THREE*/
-/*global Stats*/
+
 window.addEventListener('load', init, false);
 
 var sceneWidth;
@@ -13,7 +12,7 @@ var ground;
 var orbitControl;
 var rollingGroundSphere;
 var heroSphere;
-var rollingSpeed=0.008;
+var rollingSpeed=0.002;
 var heroRollingSpeed;
 var worldRadius=26;
 var heroRadius=0.2;
@@ -21,7 +20,7 @@ var sphericalHelper;
 var pathAngleValues;
 var heroBaseY=1.8;
 var bounceValue=0.1;
-var gravity=0.005;
+var gravity=0.002;
 var leftLane=-1;
 var rightLane=1;
 var middleLane=0;
@@ -98,11 +97,11 @@ function createScene(){
 	document.onkeydown = handleKeyDown;
 	
 	scoreText = document.createElement('div');
-	scoreText.style.position = 'absolute';
+	scoreText.style.position = 'right';
 	//text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
 	scoreText.style.width = 100;
 	scoreText.style.height = 100;
-	//scoreText.style.backgroundColor = "blue";
+	scoreText.style.backgroundColor = "green";
 	scoreText.innerHTML = "0";
 	scoreText.style.top = 10 + 'px';
 	scoreText.style.left = 100 + 'px';
@@ -150,16 +149,17 @@ function handleKeyDown(keyEvent){
 			validMove=false;	
 		}
 	}else{
+		if ( keyEvent.keyCode === 38){//up, jump
 			bounceValue=0.1;
-			jumping=trifue;
+			jumping=true;
 		}
 		validMove=false;
 	}
-	heroSphere.position.x=currentLane;
+	//heroSphere.position.x=currentLane;
 	if(validMove){
 		jumping=true;
 		bounceValue=0.06;
-	
+	}
 }
 function addHero(){
 	var sphereGeometry = new THREE.DodecahedronGeometry( heroRadius, 1);
@@ -394,6 +394,9 @@ function doTreeLogic(){
 				console.log("hit");
 				hasCollided=true;
 				explode();
+
+				//record
+				alert("Your score Sensor Guided Living  is :" + score);
 			}
 		}
 	});
@@ -418,6 +421,7 @@ function doExplosionLogic(){
 		particles.visible=false;
 	}
 	particleGeometry.verticesNeedUpdate = true;
+
 }
 function explode(){
 	particles.position.y=2;
@@ -432,13 +436,14 @@ function explode(){
 	}
 	explosionPower=1.07;
 	particles.visible=true;
+	
 }
 function render(){
     renderer.render(scene, camera);//draw
 }
 function gameOver () {
-  //cancelAnimationFrame( globalRenderID );
-  //window.clearInterval( powerupSpawnIntervalID );
+  cancelAnimationFrame( globalRenderID );
+  window.clearInterval( powerupSpawnIntervalID );
 }
 function onWindowResize() {
 	//resize & align

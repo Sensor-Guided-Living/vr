@@ -71,8 +71,8 @@ function createScene(){
 	
 	orbitControl = new THREE.OrbitControls( camera, renderer.domElement );//helper to rotate around in scene
 	orbitControl.addEventListener( 'change', render );
-	//orbitControl.enableDamping = true;
-	//orbitControl.dampingFactor = 0.8;
+	orbitControl.enableDamping = true;
+	orbitControl.dampingFactor = 0.8;
 	orbitControl.enableZoom = false;
 	
 	//var helper = new THREE.CameraHelper( sun.shadow.camera );
@@ -237,6 +237,8 @@ function explode(){
 	}
 	gravity=1.07;
 	particles.visible=true;
+
+	
 }
 function update(){
     //animate
