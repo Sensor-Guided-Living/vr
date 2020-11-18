@@ -23,6 +23,7 @@
     "init-server": "^1.0.1",
     "serve": "^11.3.2",
     "stripe": "^8.119.0",
+    "webgpu": "^0.1.16",
     "yarn": "^1.22.10"
   },
   "devDependencies": {
