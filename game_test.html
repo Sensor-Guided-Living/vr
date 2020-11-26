@@ -114,9 +114,21 @@
               await webcam.setup();
               await webcam.play();
               //window.requestAnimationFrame(loop);
-              setInterval(function() { loop(1);
-  // animiate something
-              }, 1000/60);
+              window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
+
+requestAnimFrame(loop);
+  
+// usage:
+// instead of setInterval(render, 16) ....
+
+
 
 
 
@@ -134,14 +146,15 @@
             }
         
             async function loop(timestamp) {
-              alert('webCamUpdate');
+              //alert('webCamUpdate');
               webcam.update();
-              alert('predict');
+             // alert('predict');
               await predict();
-              alert('Fin Loop');
+              render();
+             // alert('Fin Loop');
               //window.requestAnimationFrame(loop);
             }
-        
+           
         
             var control = "";
             var corriendo = 0;
