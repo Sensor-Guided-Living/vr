@@ -4,7 +4,7 @@
 
     <head>
       
-<script>
+<!--  <script>
     function Entrada() {
      alert("Welcome to sgl game");
   }
@@ -19,7 +19,7 @@
   
 
 
-  </script>
+  </script>-->
 
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,46 +29,22 @@
        
         
 	<audio loop id="music" preload="auto" style="display: none">
-		<source src="/sounds/darkosc.mpeg" type="audio/ogg">
+		<source src="./sounds/darkosc.mpeg" type="audio/ogg">
 		<source src="./sounds/darkosc.mpeg" type="audio/mpeg">
 	</audio>
 
         
         
-        <title>SGL Roller</title>
-        <h2>SGL 2020</h2>
-        <div class="preloader">
-          <style>
-            
-          </style>
-        </div>
-
+        <title>SGL Roller</title>  
+       
     </head>
 
     <body>
         
-        <audio src="./sounds/darkosc.mpeg" autoplay="autoplay" loop="loop"></audio>
-        <audio controls autoplay>
-            <source src="./sounds/darkosc.mpeg" type="audio/ogg">
-                <source src="./sounds/darkosc.mpeg" type="audio/mpeg">
-            
-          </audio>
-          <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js">
-          </script>
-        
-         
-          <div>Game</div>
+
        
 
-<div id="loader-wrapper">
-    <div id="loader"></div>
- 
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
- 
-</div>
-        
+
           <div><canvas id="canvas"></canvas></div>
           <style>
             #canvas {
@@ -94,17 +70,27 @@
             
           </style>
           <div id="label-container"></div>
+          <style>
+            #label-container{
+        font-size: 0;
+        
+    };
+            
+          </style>
         
           <!--  -->
           <script type="text/javascript">
+
             var canvas = document.getElementById('canvas');
             var context = canvas.getContext('2d');
             
           
             const URL = "https://teachablemachine.withgoogle.com/models/t7SrkO6Qv/";
             let model, webcam, ctx, labelContainer, maxPredictions;
+
+            
         
-            init();
+            
         
             async function init() {
         
@@ -180,63 +166,33 @@
               //var Flexion = prediction[2].className; // + prediction[8].probability;
         
               var Statusbo = bodyUp.value;
-      
-
-        
               /* ............................................ */
            /* Variables asignadas..................................................... */
-              var Cero = "Left1";
-              var One = "Right1";
-              var Two = "Up1";
+              var Cero = "Left";
+              var One = "Right";
+              var Two = "Up";
         
         //mover bola a Izquierda
 
-              if ((Two == Badposture) && (control != Two)) {
+              if ((prediction[2].probability >= 0.90) && (control != Two)) {
                 //playAudio();
                 control = Two;
                 bounceValue=0.1;
 			jumping=true;
-
-               /*  
-                //console.log(control);
-
-                if(currentLane==middleLane){
-			currentLane=leftLane;
-		}else if(currentLane==rightLane){
-			currentLane=middleLane;
-		}else{
-			validMove=false;	
-		}*/
         
               }
 
-              /* ////////////////////////////////////////////////////////////////////////////////////
-               */
-        /* bola derecha
-        ////////////////////////////////////////////////////////////////////////////////////////////;
-        */
-              if ((One == SideBody) && (control != One)) {
+              else if ((prediction[1].probability >= 0.90) && (control != One)) {
                 //audio2();
                 control = One;   
-
-                currentLane=rightLane;
+                currentLane=rightLane;    
                 
-                /*  
-                if(currentLane==middleLane){
-                  currentLane=rightLane;
-		}else if(currentLane==leftLane){
-			currentLane=middleLane;
-}else{
-			validMove=false;	
-		}
-    */
         
               }
     
-               if ((Cero == bodyUp) && (control != Cero)) {              
+               else if ((prediction[0].probability >= 0.90) && (control != Cero)) {              
                   //setTimeout('incrementer()', 1000);
-                  control = Cero;        
-                 
+                  control = Cero;
                   currentLane=leftLane;
                }
         
@@ -260,13 +216,7 @@
         
           <!------------------------   Untitled design-800x800   ------------------------>
         
-          <!-- Audio 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 -->
-          <audio id="myAudio">
-        
-            <source src="./audiosSGL/beep-03.mp3" type="audio/mpeg">
-        
-          </audio>
-        
+          
          
           <div id="container">
         
@@ -333,6 +283,8 @@
                   function LeadingZero(Time) {
                     return (Time < 10) ? "0" + Time : +Time;
                   }
+
+                  
                 </script>
         
             </div>
@@ -342,50 +294,9 @@
         
         
         
-          <script>
-            var x = document.getElementById("myAudio");
-        
-        
-            function playAudio() {
-              x.play();
-            }
-        
-            function pauseAudio() {
-              x.pause();
-            }
-          </script>
-          <!-- Audio corrct posture -->
-          <audio id="2">
-            <source src="./audiosSGL/robotbodydown.mp3" type="audio/mpeg">
-          </audio>
-          <script>
-            var aubodydown = document.getElementById("2");
-        
-            function audio2() {
-              aubodydown.play();
-            }
-        
-            function pauseAudio() {
-              aubodydown.pause();
-            }
-          </script>
+         
           <!--////////////////////////////////////////////////////////////////////////// audiios////////////////////////////////// -->
-          <audio id="3">
-            <source src="./audiosSGL/welcometosgl.mp3" type="audio/mpeg">
-            SGL Auditive Instructions 
-          </audio>
-          <script>
-            var audiobueno3 = document.getElementById("3");
-        
-            function audio3() {
-        
-              audiobueno3.play();
-            }
-        
-            function pauseAudio() {
-              audiobueno3.pause();
-            }
-          </script>
+         
           <!--//////////////////////////////////////////////////////////////////////////4////////////////////////////////// -->
          <!--   <audio id="4">
         
@@ -393,31 +304,7 @@
         
           </audio>-->
         
-          <script>
-            var robotdown = document.getElementById("4");
-        
-            function audio4() {
-              robotdown.play();
-            }
-        
-            function pauseAudio() {
-              robotdown.pause();
-            }
-          </script>
-        
-          <!-- barra de progreso//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////     -->
-        
-        
-          <script>
-            function mybarra() {
-              document.getElementById("bodyUp").value = "100";
-            }
-        
-            function adios() {
-              document.getElementById("bodyUp").value = "0";
-        
-            }
-          </script>
+          
 
 <div id="TutContainer"></div>
 
