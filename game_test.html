@@ -123,7 +123,7 @@
           };
 })();
 
-requestAnimFrame(loop);
+loop(1);
   
 // usage:
 // instead of setInterval(render, 16) ....
@@ -150,6 +150,7 @@ requestAnimFrame(loop);
               webcam.update();
              // alert('predict');
               await predict();
+              requestAnimFrame(loop);
               render();
              // alert('Fin Loop');
               //window.requestAnimationFrame(loop);
