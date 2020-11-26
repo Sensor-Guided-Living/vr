@@ -134,8 +134,11 @@
             }
         
             async function loop(timestamp) {
+              alert('webCamUpdate');
               webcam.update();
+              alert('predict');
               await predict();
+              alert('Fin Loop');
               //window.requestAnimationFrame(loop);
             }
         
@@ -155,7 +158,7 @@
               const prediction = await model.predict(posenetOutput);  
         
               for (let i = 0; i < maxPredictions; i++) {
-                alert(prediction[i].probability);
+               
                 const classPrediction =
                   prediction[i].className + ": " + prediction[i].probability.toFixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
