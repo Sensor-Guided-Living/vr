@@ -113,8 +113,15 @@
               webcam = new tmPose.Webcam(size, size, flip);
               await webcam.setup();
               await webcam.play();
-              window.webkitRequestAnimationFrame(loop);
-        
+              //window.requestAnimationFrame(loop);
+              setInterval(function() { loop(1);
+  // animiate something
+              }, 1000/60);
+
+
+
+
+
               const canvas = document.getElementById("canvas");
               canvas.width = size;
               canvas.height = size;
