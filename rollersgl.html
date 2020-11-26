@@ -25,6 +25,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="Paul Warren ,  Wylky Ramirez" />
         <meta name="description" content="Welcome to the new funWorld" />
+        <script>init();</script>
 
        
         
@@ -40,6 +41,7 @@
     </head>
 
     <body>
+      
         
 
        
@@ -80,6 +82,7 @@
         
           <!--  -->
           <script type="text/javascript">
+          alert("hello");
 
             var canvas = document.getElementById('canvas');
             var context = canvas.getContext('2d');
@@ -88,8 +91,7 @@
             const URL = "https://teachablemachine.withgoogle.com/models/t7SrkO6Qv/";
             let model, webcam, ctx, labelContainer, maxPredictions;
 
-            
-        
+           
             
         
             async function init() {
