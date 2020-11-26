@@ -92,13 +92,12 @@
             let model, webcam, ctx, labelContainer, maxPredictions;
             init();
 
+           
             async function init() {
         const modelURL = URL + 'model.json';
         const metadataURL = URL + 'metadata.json';
 
-        // load the model and metadata
-        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-        // or files from your local hard drive
+       
         model = await tmImage.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
 
@@ -120,54 +119,13 @@
         // only now start the webcam --> **after video-object added to DOM and attributes are set**
         webcam.play();
         window.requestAnimationFrame(loop); // update canvas by loop-function
-
-        
     }
-
-            /*  
-
-           
+        
             
         
-            async function init() {
+              /* CAMARA SIZE WOLFKING */
+            
         
-        
-        
-        
-              const modelURL = URL + "model.json";
-              const metadataURL = URL + "metadata.json";
-        
-        
-              model = await tmPose.load(modelURL, metadataURL);
-              maxPredictions = model.getTotalClasses();
-        
-              
-              const size = 100;
-              const flip = true;
-              webcam = new tmPose.Webcam(size, size, flip);
-              await webcam.setup();
-              await webcam.play();
-              //window.requestAnimationFrame(loop);
-              window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame       ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame    ||
-          function( callback ){
-            window.setTimeout(callback, 1000 / 60);
-          };
-})();
-
-loop(1);
-  
-// usage:
-// instead of setInterval(render, 16) ....
-
-
-
-
-
-
-
               const canvas = document.getElementById("canvas");
               canvas.width = size;
               canvas.height = size;
@@ -177,18 +135,14 @@ loop(1);
                 labelContainer.appendChild(document.createElement("div"));
                
               }
-            }
-        */
+            
+        
             async function loop(timestamp) {
-              //alert('webCamUpdate');
               webcam.update();
-             // alert('predict');
               await predict();
-              
-             // alert('Fin Loop');
-              //window.requestAnimationFrame(loop);
+              window.requestAnimationFrame(loop);
             }
-           
+        
         
             var control = "";
             var corriendo = 0;
@@ -205,7 +159,6 @@ loop(1);
               const prediction = await model.predict(posenetOutput);  
         
               for (let i = 0; i < maxPredictions; i++) {
-               
                 const classPrediction =
                   prediction[i].className + ": " + prediction[i].probability.toFixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
